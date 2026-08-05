@@ -1,0 +1,78 @@
+class Solution(object):
+    def containsDuplicate(self, nums):
+        seen = set()
+        for num in nums:
+            if num in seen:
+                return True
+            seen.add(num)
+        return False
+
+
+
+
+# Contains Duplicate
+
+## Problem
+
+Given an array of integers, determine whether any number appears more than once.
+
+* Return `True` if a duplicate exists.
+* Return `False` if every element is unique.
+
+### Example
+
+**Input**
+
+```text
+nums = [1, 2, 3, 1]
+```
+
+**Output**
+
+```text
+True
+```
+
+**Explanation**
+
+The number `1` appears twice (at index `0` and `3`), so the answer is `True`.
+
+Another example:
+
+**Input**
+
+```text
+nums = [1, 2, 3, 4]
+```
+
+**Output**
+
+```text
+False
+```
+
+Since every number appears only once, there are no duplicates.
+
+---
+
+## Dry Run
+
+For:
+
+```text
+nums = [1, 2, 3, 1]
+```
+
+| Current Number | Seen Set  | Action                         |
+| -------------: | --------- | ------------------------------ |
+|              1 | {}        | Add 1                          |
+|              2 | {1}       | Add 2                          |
+|              3 | {1, 2}    | Add 3                          |
+|              1 | {1, 2, 3} | Already exists → Return `True` |
+
+
+---
+
+## Key Takeaway
+
+A **set** stores only unique values and provides very fast lookup (`O(1)` on average). This allows us to detect duplicates efficiently without comparing every pair of elements.
