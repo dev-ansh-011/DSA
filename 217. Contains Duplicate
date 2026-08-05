@@ -10,69 +10,55 @@ class Solution(object):
 
 
 
-# Contains Duplicate
-
 ## Problem
 
-Given an array of integers, determine whether any number appears more than once.
+Given an array of integers, check if any number appears more than once.
 
-* Return `True` if a duplicate exists.
-* Return `False` if every element is unique.
+* Return **True** if a duplicate exists.
+* Return **False** if all numbers are unique.
 
-### Example
 
-**Input**
+## Example 1
 
-```text
-nums = [1, 2, 3, 1]
-```
+**Input:** nums = [1, 2, 3, 1]
 
-**Output**
+**Output:** True
 
-```text
-True
-```
-
-**Explanation**
-
-The number `1` appears twice (at index `0` and `3`), so the answer is `True`.
-
-Another example:
-
-**Input**
-
-```text
-nums = [1, 2, 3, 4]
-```
-
-**Output**
-
-```text
-False
-```
-
-Since every number appears only once, there are no duplicates.
+**Explanation:** The number **1** appears twice, so the answer is **True**.
 
 ---
 
-## Dry Run
+## Example 2
 
-For:
+**Input:** nums = [1, 2, 3, 4]
 
-```text
-nums = [1, 2, 3, 1]
-```
+**Output:** False
 
-| Current Number | Seen Set  | Action                         |
-| -------------: | --------- | ------------------------------ |
-|              1 | {}        | Add 1                          |
-|              2 | {1}       | Add 2                          |
-|              3 | {1, 2}    | Add 3                          |
-|              1 | {1, 2, 3} | Already exists → Return `True` |
+**Explanation:** Every number appears only once, so there are no duplicates.
 
 
----
+-- Approach
 
-## Key Takeaway
+* Create an empty **set** called `seen`.
+* Go through each number in the array.
+* If the number is already in `seen`, return **True**.
+* Otherwise, add it to `seen`.
+* If the loop finishes, return **False**.
 
-A **set** stores only unique values and provides very fast lookup (`O(1)` on average). This allows us to detect duplicates efficiently without comparing every pair of elements.
+
+-- Dry Run
+
+For **nums = [1, 2, 3, 1]**
+
+| Number | Seen      | Action                            |
+| ------ | --------- | --------------------------------- |
+| 1      | {}        | Add 1                             |
+| 2      | {1}       | Add 2                             |
+| 3      | {1, 2}    | Add 3                             |
+| 1      | {1, 2, 3} | Duplicate found → Return **True** |
+
+
+
+-- Key Takeaway
+
+A **set** stores only unique values, so checking whether a number has already been seen is fast. This helps us find duplicates efficiently in a single pass through the array.
