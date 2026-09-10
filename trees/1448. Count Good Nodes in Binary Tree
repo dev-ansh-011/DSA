@@ -1,0 +1,15 @@
+class Solution:
+    def goodNodes(self, root):
+        def count(node, max_value):
+            if not node:
+                return 0
+            good = 0
+            if node.val >= max_value:
+                good = 1
+            max_value = max(max_value, node.val)
+            good += count(node.left, max_value)
+            good += count(node.right, max_value)
+
+            return good
+
+        return count(root, root.val)
