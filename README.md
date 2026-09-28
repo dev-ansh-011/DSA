@@ -15,5 +15,5 @@ Complete the **NeetCode 150** while developing a strong understanding of common 
 
 ---
 
-**Language:** Python
+**Language:**  Python
 **Practice Set:** NeetCode 150
